@@ -1,3 +1,6 @@
+# Open a new PowerShell window running Get-Process
+Start-Process powershell -ArgumentList "-NoExit -Command Get-Process"
+
 # Prompt user to input the name of the program
 $programName = Read-Host "Enter the name of the program you want to terminate"
 
