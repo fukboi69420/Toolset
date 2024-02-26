@@ -29,7 +29,16 @@ registry file
 node script.js
 ```
 javascript
-
+* * * * * * * * * * *
+```
+powershell -file $FILEPATH
+```
+CMD (or you can right click and run with powershell)
+- to run powershell script in ISE,
+```
+Set-ExecutionPolicy RemoteSigned
+```
+this will allow you to run scripts in ISE, unsigned scripts will still prompt for confirmation
 Follow the prompts to configure the software package.
 
 ## Disclaimer
