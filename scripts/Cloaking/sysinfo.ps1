@@ -10,7 +10,8 @@ function Get-CPUInfo {
 # Function to get RAM information
 function Get-RAMInfo {
     $ramInfo = Get-WmiObject -Class Win32_PhysicalMemory
-    $totalRAMGB = [math]::Round(($ramInfo.Capacity / 1GB), 2)
+    $totalRAMBytes = ($ramInfo | Measure-Object -Property Capacity -Sum).Sum
+    $totalRAMGB = [math]::Round(($totalRAMBytes / 1GB), 2)
     Write-Output "Total Installed RAM: ${totalRAMGB}GB"
 }
 
@@ -72,3 +73,7 @@ Write-Output ""
 Get-NetworkInfo
 Write-Output ""
 Get-GPUInfo
+Write-Output ""
+
+# keep terminal open
+pause
